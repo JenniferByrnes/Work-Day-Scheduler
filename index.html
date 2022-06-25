@@ -4,24 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Bootstrap-->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
+    <!-- Iconic-->
     <link 
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
     />
+    <!-- Fonts-->
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
+    <!-- Google API-->
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
+    <!-- My own stylesheet-->
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Work Day Scheduler</title>
   </head>
@@ -34,33 +39,99 @@
     </header>
     <div class="container">
       <!-- Timeblocks go here -->
-      <div class="row">
-        <div class="col-1 .col-sm-1 border-top border-bottom">
+      <div id="9" class="row time-block">
+        <div class="col-1 hour">
           9AM
         </div>
-        <div class="col-9 bg-light border-right border-left border-secondary .col-sm-4">
-          Agenda items
-        </div>
-        <div class="col-1 border bg-info text-white d-flex align-items-center rounded-right"><span class="oi oi-box"></span>
-        </div>
+        <textarea id="agenda9" class="description col-10">
+        </textarea>
+        <button class="col-1 btn saveBtn"><span class="oi oi-box"></span>
+        </button>
       </div>
-      <div class="row">
-        <div class="col-1 .col-sm-1 border-top border-bottom">
+      <div id="10" class="row time-block">
+        <div class="col-1 hour">
           10AM
         </div>
-        <div class="col-9 border-right border-left border-secondary .col-sm-4 bg-light">
-          Agenda items
-        </div>
-        <div class="col-1 border bg-info text-white d-flex align-items-center rounded-right"><span class="oi oi-box"></span>
-        </div>
+        <textarea id="agenda10" class="description col-10">
+        </textarea>
+        <button class="col-1 btn saveBtn"><span class="oi oi-box"></span>
+        </button>
       </div>
- 
-
+      <div id="11" class="row time-block">
+        <div class="col-1 hour">
+          11AM
+        </div>
+        <textarea id="agenda11" class="description col-10">
+        </textarea>
+        <button class="col-1 btn saveBtn"><span class="oi oi-box"></span>
+        </button>
+      </div>
+      <div id="12" class="row time-block">
+        <div class="col-1 hour">
+          12AM
+        </div>
+        <textarea id="agenda12" class="description col-10">
+        </textarea>
+        <button class="col-1 btn saveBtn"><span class="oi oi-box"></span>
+        </button>
+      </div>
+      <div id="13" class="row time-block">
+        <div class="col-1 hour">
+          1PM
+        </div>
+        <textarea id="agenda1" class="description col-10">
+        </textarea>
+        <button class="col-1 btn saveBtn"><span class="oi oi-box"></span>
+        </button>
+      </div>
+      <div id="14" class="row time-block">
+        <div class="col-1 hour">
+          2PM
+        </div>
+        <textarea id="agenda2" class="description col-10">
+        </textarea>
+        <button class="col-1 btn saveBtn"><span class="oi oi-box"></span>
+        </button>
+      </div>
+      <div id="15" class="row time-block">
+        <div class="col-1 hour">
+          3PM
+        </div>
+        <textarea id="agenda3" class="description col-10">
+        </textarea>
+        <button class="col-1 btn saveBtn"><span class="oi oi-box"></span>
+        </button>
+      </div>
+      <div id="16" class="row time-block">
+        <div class="col-1 hour">
+          4PM
+        </div>
+        <textarea id="agenda4" class="description col-10">
+        </textarea>
+        <button class="col-1 btn saveBtn"><span class="oi oi-box"></span>
+        </button>
+      </div>
+      <div id="17" class="row time-block">
+        <div class="col-1 hour">
+          5PM
+        </div>
+        <textarea id="agenda5" class="description col-10">
+        </textarea>
+        <button class="col-1 btn saveBtn"><span class="oi oi-box"></span>
+        </button>
       </div>
     </div>
 
+     <!-- imported from TaskMasterPro -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Moment -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- my script -->
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
