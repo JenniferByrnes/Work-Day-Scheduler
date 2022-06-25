@@ -1,42 +1,65 @@
-/* Get the current date to display in the header */
-document.getElementById("currentDay").innerHTML = ("Today is " + moment().format("L"));
-var currentHour = parseInt(moment().format('HH'));
+/* Initialize the screen for the user */
 
-/* for every row
-if row < current hour, set class=past
-else if row = current hour, set class = now
-else if row <= current hour +2, set class = soon */
-for (let i=9; i<18; i++) {
+var startFunction = function() {
+  /* Get the current date to display in the header */
+  document.getElementById("currentDay").innerHTML = (moment().format("dddd, MMMM D YYYY"));
 
-  /* reset class to default values */
-  $("#"+i).css("class", "row time-block");
+  /* Retrieves the hour and description from Local on refresh */
+  $("#9 .description").val(localStorage.getItem(9));
+  $("#10 .description").val(localStorage.getItem(10));
+  $("#11 .description").val(localStorage.getItem(11));
+  $("#12 .description").val(localStorage.getItem(12));
+  $("#13 .description").val(localStorage.getItem(13));
+  $("#14 .description").val(localStorage.getItem(14));
+  $("#15 .description").val(localStorage.getItem(15));
+  $("#16 .description").val(localStorage.getItem(16));
+  $("#17 .description").val(localStorage.getItem(17));
+}
 
-  if (i < currentHour) {
-    $("#"+i).addClass("past");
-  } else 
-  if (i == currentHour) {
-    $("#"+i).addClass("present");   
-  } else 
-  if (i <= (currentHour + 2)) {
-    $("#"+i).addClass("future");
-  } 
+var refreshTimeColors = function() {
+
+  /* Get the current hour */
+  var currentHour = parseInt(moment().format('HH'));
+
+  /* Cycle through the work hours */
+  for (let i=9; i<18; i++) {
+
+    /* reset class to default values */
+    $("#"+i).css("class", "row time-block");
+
+    /* Set past, present, and future hour colors */
+    if (i < currentHour) {
+      $("#"+i).addClass("past");
+    } else 
+    if (i == currentHour) {
+      $("#"+i).addClass("present");   
+    } else {
+      $("#"+i).addClass("future");
+    } 
+  }
 };
 
-/* When the save button is clicked, save the hour and description to Local */
+/* When the save button is clicked, save the hour and description of the row */
 $(".saveBtn").click(function() {
+  /* retrieve the row id */
   var hour = $(this).parent().attr('id');
+  /* retrieve the description in the same row */
   var task = $(this).siblings(".description").val();
 
+  /* Save the row id and description */
   localStorage.setItem(hour, task);
 });
 
-/* Retrieves the hour and description from Local on refresh */
-$("#9 .description").val(localStorage.getItem(9));
-$("#10 .description").val(localStorage.getItem(10));
-$("#11 .description").val(localStorage.getItem(11));
-$("#12 .description").val(localStorage.getItem(12));
-$("#13 .description").val(localStorage.getItem(13));
-$("#14 .description").val(localStorage.getItem(14));
-$("#15 .description").val(localStorage.getItem(15));
-$("#16 .description").val(localStorage.getItem(16));
-$("#17 .description").val(localStorage.getItem(17));
+/* Start the script */
+startFunction();
+
+/* Set the hourly colors based on the time of day */
+refreshTimeColors();
+
+// update agenda colors every 5 minutes
+setInterval(function() {
+  refreshTimeColors();
+}
+, 300000);
+
+
