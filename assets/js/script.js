@@ -14,6 +14,38 @@ m2.toJSON = function() {
 };
 *****************************/
 document.getElementById("currentDay").innerHTML = ("Today is " + moment().format("L"));
+var currentHour = parseInt(moment().format('HH'));
+
+/*
+for every row
+if row < current hour, set class=past
+else if row = current hour, set class = now
+else if row < current hour +2, set class = soon */
+
+for (let i=9; i<18; i++) {
+  if (i < currentHour) {
+    $("#"+i).css("class", "row time-block");
+    $("#"+i).addClass("past");
+    console.log("past i=", i);
+  
+  } else 
+  if (i == currentHour) {
+    $("#"+i).css("class", "row time-block");
+    $("#"+i).addClass("present");
+    
+    console.log("presetn");
+  } else 
+  if (i <= (currentHour + 2)) {
+    $("#"+i).css("class", "row time-block");
+    $("#"+i).addClass("future");
+    console.log("future i=", i);
+    console.log("future currenthouer=", currentHour);
+    console.log("future currenthouer=", (currentHour + 2));
+  } else {
+    $("#"+i).css("class", "row time-block");
+  }
+}
+
 
 /* When the save button is clicked, save the hour and description to Local */
 $(".saveBtn").click(function() {
